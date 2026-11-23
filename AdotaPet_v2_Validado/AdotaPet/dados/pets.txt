@@ -1,0 +1,7 @@
+#ADOTAPET|1|7
+CAO|1|Thor|3|SRD|Macho|true|Grande|Alta|pet-1-74e2d3bb-532c-431a-a0f2-3a781e772c0c.png
+GATO|2|Luna|2|SRD|Fêmea|true|Curta|pet-2-fc31a504-fc30-48fe-ab77-2ff91407a48d.png
+CAO|3|Mel|1|Vira-lata|Fêmea|true|Pequeno|Média|pet-3-5c0a60d3-625c-4645-b3cb-eee6e1c704dd.png
+GATO|4|Simba|4|Persa|Macho|false|Longa|pet-4-7f3f1090-74c4-40a9-bafb-4915ff12ed35.png
+CAO|5|Bob|6|Beagle|Macho|false|Médio|Média|pet-5-d25d8d50-bae3-4de2-a7ba-eec85a15ce15.png
+GATO|6|Nina|1|Siamês|Fêmea|true|Curta|pet-6-4f5b367d-795a-4947-bcb7-700c41e03839.png

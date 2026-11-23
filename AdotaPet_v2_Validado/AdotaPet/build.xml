@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AdotaPet" default="jar" basedir=".">
+    <description>Projeto AdotaPet: Java Swing com Ant, sem bibliotecas externas.</description>
+    <property file="nbproject/project.properties" />
+    <property name="src.dir" value="src" />
+    <property name="test.dir" value="test" />
+    <property name="build.dir" value="build" />
+    <property name="build.classes.dir" value="${build.dir}/classes" />
+    <property name="build.test.classes.dir" value="${build.dir}/test/classes" />
+    <property name="dist.dir" value="dist" />
+    <property name="main.class" value="adotapet.Principal" />
+
+    <target name="init">
+        <mkdir dir="${build.classes.dir}" />
+    </target>
+    <target name="compile" depends="init" description="Compila os arquivos Java do aplicativo">
+        <javac srcdir="${src.dir}" destdir="${build.classes.dir}" includeantruntime="false"
+               encoding="UTF-8" release="8" debug="true" />
+    </target>
+    <target name="jar" depends="compile" description="Gera o programa executável em dist/">
+        <mkdir dir="${dist.dir}" />
+        <jar destfile="${dist.dir}/AdotaPet.jar" basedir="${build.classes.dir}">
+            <manifest><attribute name="Main-Class" value="${main.class}"/></manifest>
+        </jar>
+    </target>
+    <target name="run" depends="jar" description="Inicia a interface gráfica">
+        <java jar="${dist.dir}/AdotaPet.jar" fork="true" failonerror="true" dir="${basedir}" />
+    </target>
+    <target name="test-compile" depends="compile">
+        <mkdir dir="${build.test.classes.dir}" />
+        <javac srcdir="${test.dir}" destdir="${build.test.classes.dir}"
+               includeantruntime="false" encoding="UTF-8" release="8" debug="true">
+            <classpath><pathelement location="${build.classes.dir}"/></classpath>
+        </javac>
+    </target>
+    <target name="test" depends="test-compile" description="Executa testes automatizados sem JUnit">
+        <java classname="adotapet.testes.TestesAdotaPet" fork="true" failonerror="true">
+            <classpath>
+                <pathelement location="${build.classes.dir}"/>
+                <pathelement location="${build.test.classes.dir}"/>
+            </classpath>
+        </java>
+    </target>
+    <target name="clean" description="Remove as pastas geradas pelo compilador">
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+</project>
